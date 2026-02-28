@@ -1,0 +1,53 @@
+name: Frontend Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/frontend/**'
+      - '.github/workflows/frontend-tests.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'src/frontend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'src/frontend/package-lock.json'
+
+    - name: Install dependencies
+      run: |
+        cd src/frontend
+        npm ci
+
+    - name: Run tests
+      run: |
+        cd src/frontend
+        npm test -- --coverage --passWithNoTests --watchAll=false
+      env:
+        CI: true
+
+    - name: Build frontend
+      run: |
+        cd src/frontend
+        npm run build
+      env:
+        REACT_APP_API_URL: http://localhost:5000
+        REACT_APP_WEB3_RPC_URL: http://localhost:8545
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: frontend-build
+        path: src/frontend/build/
+        retention-days: 5

@@ -1,0 +1,3 @@
+.exit
+console.log(deployments);
+const deployments = await hre.deployments.all();
