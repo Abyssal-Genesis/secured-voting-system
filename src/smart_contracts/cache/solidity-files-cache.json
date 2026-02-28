@@ -1,12 +1,12 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\MOHIT KARMAKAR\\secured-voting-system\\src\\smart_contracts\\contracts\\Voting.sol": {
-      "lastModificationDate": 1746036692549,
-      "contentHash": "0c210f3a9069f9f734a3687b663bde35",
+    "C:\\Users\\MOHIT KARMAKAR\\OneDrive\\Desktop\\secured-voting-system\\src\\smart_contracts\\contracts\\Voting.sol": {
+      "lastModificationDate": 1772210973856,
+      "contentHash": "5c601158f71f9d1c999da13554319bb0",
       "sourceName": "contracts/Voting.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.19",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -30,10 +30,10 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.19"
       ],
       "artifacts": [
-        "Voting"
+        "SecuredVotingSystem"
       ]
     }
   }
