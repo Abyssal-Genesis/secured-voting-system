@@ -11,7 +11,7 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
   database: process.env.DB_NAME || 'voting_system_test',
   user: process.env.DB_USER || 'voting_user',
-  password: process.env.DB_PASSWORD || 'test_db_password_secure',
+  password: process.env.DB_PASSWORD,
   max: parseInt(process.env.DB_POOL_MAX || '10'),
   min: parseInt(process.env.DB_POOL_MIN || '2'),
   idleTimeoutMillis: 30000,
