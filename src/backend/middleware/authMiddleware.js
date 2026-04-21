@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 class AuthMiddleware {
   constructor(config = {}) {
-    this.jwtSecret = config.jwtSecret || process.env.JWT_SECRET || 'backup-secret-key';
+    this.jwtSecret = config.jwtSecret || process.env.JWT_SECRET;
     this.logger = config.logger || console;
   }
 
